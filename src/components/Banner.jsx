@@ -3,9 +3,9 @@
 const Banner = () => {
     return (
         <div>
-            This is banner
+            This is banner  
         </div>
     );
 };
 
-export default Banner;
+export default Banner;  

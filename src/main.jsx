@@ -8,6 +8,10 @@ import "./index.css";
 import Home from './components/Home';
 import MainLayOut from './MainLayOut';
 import ErrorPage from './components/ErrorPage';
+import AddProduct from './components/AddProduct';
+import MyCart from './components/MyCart';
+import Login from './components/Login';
+import Register from './components/Register';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -17,6 +21,22 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>
+      },
+      {
+        path: "/products",
+        element: <AddProduct></AddProduct>
+      },
+      {
+        path: "/cart",
+        element: <MyCart></MyCart>
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/register",
+        element: <Register></Register>
       },
       
     ]
