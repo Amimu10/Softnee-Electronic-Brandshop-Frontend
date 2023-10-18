@@ -20,6 +20,9 @@ const Navbar = () => {
       })
       .catch((error) => console.error(error));
   };
+  const handleNavLinkClick = () => {
+    setMenu(false);
+  };
 
   return (
     <div className="bg-[#232323]">
@@ -30,7 +33,6 @@ const Navbar = () => {
            <img src={Logo} alt="" /> 
           </h3>
         </div>
-        {/* Show menu items only on medium and larger screens */}
         <div className="md:flex lg:gap-12 md:gap-6 text-lg hidden list-none">
           <li className="md:mt-1">
             <NavLink
@@ -105,8 +107,6 @@ const Navbar = () => {
             )}
           </li>
         </div>
-
-        {/* Show menu icon only on small screens */}
         <div className="md:hidden flex items-center gap-2">
           {menu ? (
             <AiOutlineClose
@@ -125,6 +125,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/"
+                  onClick={handleNavLinkClick}
                   className={({ isActive, isPending }) =>
                     isPending
                       ? 'pending'
@@ -139,6 +140,7 @@ const Navbar = () => {
               <li className="md:mt-1">
                 <NavLink
                   to="/products"
+                  onClick={handleNavLinkClick}
                   className={({ isActive, isPending }) =>
                     isPending
                       ? 'pending'
@@ -153,6 +155,7 @@ const Navbar = () => {
               <li className="md:mt-1">
                 <NavLink
                   to="/cart"
+                  onClick={handleNavLinkClick}
                   className={({ isActive, isPending }) =>
                     isPending
                       ? 'pending'
@@ -168,6 +171,7 @@ const Navbar = () => {
                 user?  <li>
                 <Link
                   onClick={handleLogOut}
+                  
                   to="/login"
                   className={({ isActive, isPending }) =>
                     isPending
