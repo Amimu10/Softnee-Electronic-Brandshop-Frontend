@@ -20,7 +20,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <Carousel className="rounded-xl" index={currentIndex}>
+    <Carousel className="" index={currentIndex}>
       {images.map((imageUrl, index) => (
         <div key={index} className="relative h-screen w-full">
           <img

@@ -1,9 +1,47 @@
-
+import Swal from 'sweetalert2'
 const AddProduct = () => {
+
+  const handleAddProduct = e => {
+    e.preventDefault();
+    const form = e.target;
+    const image = form.image.value;
+    const name = form.name.value;
+    const brand = form.brand.value;
+    const category = form.category.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const description = form.description.value; 
+
+    const newProduct = {image, name, brand, category, price, rating, description}; 
+    console.log(newProduct);
+    fetch('http://localhost:5000/category', {
+      method: 'POST', 
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(newProduct) 
+     })
+     .then(res => res.json()) 
+     .then(data => {   
+      console.log(data);   
+      if(data.insertedId){
+        Swal.fire({
+          position: 'top',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: true, 
+          timer: 1500
+        })
+      }
+     })
+    
+     
+  }
+
   return (
     <div className="text-center px-4 my-8">
       <h3 className="font-young font-semibold lg:text-3xl text-xl">Add New Product</h3>
-      <form
+      <form onSubmit={handleAddProduct}
         className="bg-[#F4F3F0] p-4 sm:p-8 rounded shadow-lg w-full sm:max-w-md  mx-auto"
       >
         <div className="mb-4">
@@ -71,12 +109,12 @@ const AddProduct = () => {
             <option value="" disabled selected>
               Select Category
             </option>
-            <option value="technology">Phone</option>
-            <option value="electronics">Computer</option> 
-            <option value="gadgets">HeadPhone</option>
-            <option value="smart-home">Smart Watch</option>
-            <option value="wearables">Camera</option>
-            <option value="accessories">Google Devices</option>    
+            <option value="phone">Phone</option>
+            <option value="computer">Computer</option> 
+            <option value="headPhone">HeadPhone</option>
+            <option value="smart Watch">Smart Watch</option>
+            <option value="camera">Camera</option>
+            <option value="google Devices">Google Devices</option>    
           </select>
         </div>
         <div className="mb-4 flex flex-wrap -mx-2">
