@@ -5,6 +5,7 @@ const AddProduct = () => {
     e.preventDefault();
     const form = e.target;
     const image = form.image.value;
+    const brand_image = form.brand_image.value;
     const name = form.name.value;
     const brand = form.brand.value;
     const category = form.category.value;
@@ -12,14 +13,14 @@ const AddProduct = () => {
     const rating = form.rating.value;
     const description = form.description.value; 
 
-    const newProduct = {image, name, brand, category, price, rating, description}; 
+    const newProduct = {image, brand_image, name, brand, category, price, rating, description}; 
     console.log(newProduct);
-    fetch('http://localhost:5000/category', {
+    fetch('http://localhost:5000/products', {
       method: 'POST', 
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify(newProduct) 
+      body: JSON.stringify(newProduct)  
      })
      .then(res => res.json()) 
      .then(data => {   
@@ -49,7 +50,7 @@ const AddProduct = () => {
             htmlFor="image"
             className="block text-left text-gray-700 text-sm font-bold mb-2"
           >
-            Image
+           Product Image
           </label>
           <input
             type="text"
@@ -57,7 +58,22 @@ const AddProduct = () => {
             name="image"
             placeholder="Enter image URL"
             className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
-          />
+         required />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="image"
+            className="block text-left text-gray-700 text-sm font-bold mb-2"
+          >
+            Brand image
+          </label>
+          <input
+            type="text"
+            id="image"
+            name="brand_image"
+            placeholder="Enter image URL"
+            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
+         required />
         </div>
 
         <div className="mb-4 flex flex-wrap -mx-2">
@@ -66,7 +82,7 @@ const AddProduct = () => {
               htmlFor="name"
               className="block text-left text-gray-700 text-sm font-bold mb-2"
             >
-              Name
+             Product Name
             </label>
             <input
               type="text"
@@ -74,7 +90,7 @@ const AddProduct = () => {
               name="name"
               placeholder="Enter name"
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
-            />
+              required />
           </div>
 
           <div className="w-full sm:w-1/2 px-2">
@@ -90,7 +106,7 @@ const AddProduct = () => {
               name="brand"
               placeholder="Enter brand name"
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
-            />
+              required />
           </div>
         </div>
 
@@ -123,15 +139,15 @@ const AddProduct = () => {
               htmlFor="price"
               className="block text-left text-gray-700 text-sm font-bold mb-2"
             >
-              Price
+             $ Price
             </label>
             <input
               type="text"
               id="price"
-              name="price"
+              name="price" 
               placeholder="Enter price"
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
-            />
+              required />
           </div>
 
           <div className="w-full sm:w-1/2 px-2">
@@ -146,8 +162,8 @@ const AddProduct = () => {
               id="rating"
               name="rating"
               placeholder="Enter rating"
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
-            />
+             className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
+             required />
           </div>
         </div>
         <div className="mb-4">
@@ -163,7 +179,7 @@ const AddProduct = () => {
             name="description"
             placeholder="Enter description"
             className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
-          />
+            required  />
         </div>
 
         <div className="mb-4">
