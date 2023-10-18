@@ -3,9 +3,9 @@ import Navbar from "./components/Navbar";
 
 const MainLayOut = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <Navbar></Navbar>          
-      <Outlet></Outlet>  
+      <Outlet></Outlet>   
     </div>
   );
 };

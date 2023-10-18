@@ -41,7 +41,7 @@ const Faq = () => {
   ];
 
   return (
-    <div data-aos="zoom-in-up" className="max-w-[1340px] lg:px-8">
+    <div data-aos="zoom-in-up" className="max-w-[1340px] lg:px-8 mx-auto">
       <div className="text-center">
         <h2 className="lg:text-3xl md:text-2xl text-xl font-semibold font-young text-[#1A1919] text-center mt-14">
           Frequently Asked Questions

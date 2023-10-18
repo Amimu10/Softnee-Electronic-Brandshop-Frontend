@@ -7,9 +7,9 @@ AOS.init();
 
 const Footer = () => {
   return (
-    <div data-aos="fade-up">
-      <div className="p-10 grid grid-cols-1 md:grid-cols-3 bg-[#232323] text-[#eee] my-20 text-center">
-        <div>
+    <div data-aos="fade-up" className="bg-[#232323]">
+      <div className="p-10 grid grid-cols-1 md:grid-cols-3 max-w-[1340px] lg:px-8 px-4 text-[#eee] my-20 text-center mx-auto">
+        <div className="max-w-[1340px] lg:px-8 mx-auto">
           <h3 className="text-white lg:text-3xl md:text-2xl text-xl font-young">Get in Touch</h3>
           <p className="font-young text-xl my-4">Paribag, Dhaka<br />Dhaka, 1000</p>
         </div>

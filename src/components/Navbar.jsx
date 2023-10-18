@@ -1,12 +1,24 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import Logo from "../assets/logo.webp";
+import { AuthContext } from '../AuthProvider';
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
   const [menu, setMenu] = useState(false);
-  const handleNavLinkClick = () => {
-    setMenu(false);
+
+  const name = user?.displayName;
+  const photo = user?.photoURL;
+  const handleLogOut = () => {
+    console.log(name, photo); 
+
+    logOut()
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => console.error(error));
   };
 
   return (
@@ -62,19 +74,35 @@ const Navbar = () => {
               My Cart
             </NavLink>
           </li>
-          <li className="md:mt-1">
-            <NavLink
-              to="/login"
-              className={({ isActive, isPending }) =>
-                isPending
-                  ? 'pending'
-                  : isActive
-                  ? 'text-[#f33f3f] font-semibold font-young transition-all duration-300 hover:underline '
-                  : 'font-young font-medium text-[#eee]'
-              }
-            >
-              Login
-            </NavLink>
+          <li className="flex gap-3  items-center">
+            {user ? (
+              <>
+                {name && photo && (
+                  <>
+                    <p className="text-[#eee] font-young text-sm">{name}</p>
+                    <img
+                      src={photo}
+                      className="inline items-center mr-3 h-10 w-10 rounded-full"
+                      alt=""
+                    />
+                  </>
+                )}
+                <NavLink onClick={handleLogOut}>
+                  <Link className="bg-[#7AA93C] text-white font-young font-thin px-4 py-2 rounded">
+                    Sign Out
+                  </Link>
+                </NavLink>
+              </>
+            ) : (
+              <NavLink>
+                <Link
+                  to="/login"
+                  className="bg-[#7AA93C] text-white font-young font-thin px-4 py-2 rounded"
+                >
+                  Login
+                </Link>
+              </NavLink>
+            )}
           </li>
         </div>
 
@@ -97,7 +125,6 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/"
-                  onClick={handleNavLinkClick}
                   className={({ isActive, isPending }) =>
                     isPending
                       ? 'pending'
@@ -112,7 +139,6 @@ const Navbar = () => {
               <li className="md:mt-1">
                 <NavLink
                   to="/products"
-                  onClick={handleNavLinkClick}
                   className={({ isActive, isPending }) =>
                     isPending
                       ? 'pending'
@@ -127,7 +153,6 @@ const Navbar = () => {
               <li className="md:mt-1">
                 <NavLink
                   to="/cart"
-                  onClick={handleNavLinkClick}
                   className={({ isActive, isPending }) =>
                     isPending
                       ? 'pending'
@@ -139,21 +164,39 @@ const Navbar = () => {
                   My Cart
                 </NavLink>
               </li>
-              <li className="md:mt-1">
-                <NavLink
+              {
+                user?  <li>
+                <Link
+                  onClick={handleLogOut}
                   to="/login"
-                  onClick={handleNavLinkClick}
                   className={({ isActive, isPending }) =>
                     isPending
-                      ? 'pending'
+                      ? "pending"
                       : isActive
-                      ? 'text-[#f33f3f] font-semibold font-young transition-all duration-300 hover:underline '
-                      : 'font-young font-medium text-[#232323]'
+                      ? "text-[#FDBF05] font-semibold font-young"
+                      : "font-young font-medium text-[#656D76]"
+                  }
+                >
+                  Sign Out
+                </Link>
+              </li>
+              :
+              <li>
+                <Link
+                  onClick={handleLogOut}
+                  to="/login"
+                  className={({ isActive, isPending }) =>
+                    isPending
+                      ? "pending"
+                      : isActive
+                      ? "text-[#FDBF05] font-semibold font-young"
+                      : "font-young font-medium text-[#656D76]"
                   }
                 >
                   Login
-                </NavLink>
+                </Link>
               </li>
+               }
             </ul>
           </div>
         )}

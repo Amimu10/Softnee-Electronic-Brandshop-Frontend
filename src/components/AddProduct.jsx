@@ -1,4 +1,9 @@
 import Swal from 'sweetalert2'
+import 'aos/dist/aos.css'; 
+import AOS from 'aos';
+
+AOS.init();
+
 const AddProduct = () => {
 
   const handleAddProduct = e => {
@@ -34,14 +39,12 @@ const AddProduct = () => {
           timer: 1500
         })
       }
-     })
-    
-     
+     }) 
   }
 
   return (
-    <div className="text-center px-4 my-8">
-      <h3 className="font-young font-semibold lg:text-3xl text-xl">Add New Product</h3>
+    <div data-aos="zoom-out-up" className="text-center px-4 py-8 bg-[#232323]">
+      <h3 className="font-young text-[#eee] mb-8 font-semibold lg:text-3xl text-xl">Add New Product</h3>
       <form onSubmit={handleAddProduct}
         className="bg-[#F4F3F0] p-4 sm:p-8 rounded shadow-lg w-full sm:max-w-md  mx-auto"
       >
@@ -50,7 +53,7 @@ const AddProduct = () => {
             htmlFor="image"
             className="block text-left text-gray-700 text-sm font-bold mb-2"
           >
-           Product Image
+           Product Image 
           </label>
           <input
             type="text"
@@ -185,7 +188,7 @@ const AddProduct = () => {
         <div className="mb-4">
           <button
             type="submit"
-            className="bg-[#D2B48C] py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline-green"
+            className="bg-[#f33f3f] text-[#eee]  font-young py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline-green"
           >
             Add Product
           </button>

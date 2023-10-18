@@ -10,9 +10,14 @@ import MainLayOut from './MainLayOut';
 import ErrorPage from './components/ErrorPage';
 import AddProduct from './components/AddProduct';
 import MyCart from './components/MyCart';
+// import Login from './components/Login';
+// import Register from './components/Register';
+import Category from './components/Category';
+// import AuthProvider from '../src/AuthProvider';
 import Login from './components/Login';
 import Register from './components/Register';
-import Category from './components/Category';
+import AuthProvider from './AuthProvider';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,6 +58,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+   <AuthProvider>
    <RouterProvider router={router} />  
+   </AuthProvider>
   </React.StrictMode>
 );
