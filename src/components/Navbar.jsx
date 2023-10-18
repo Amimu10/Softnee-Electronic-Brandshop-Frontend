@@ -15,7 +15,7 @@ const Navbar = () => {
       <nav className="flex justify-between items-center  gap-4 p-6">
         <div>
           <h3 className="lg:text-2xl font-semibold font-young text-orange-600">
-           <img src={Logo} alt="" />
+           <img src={Logo} alt="" /> 
           </h3>
         </div>
         {/* Show menu items only on medium and larger screens */}

@@ -12,6 +12,7 @@ import AddProduct from './components/AddProduct';
 import MyCart from './components/MyCart';
 import Login from './components/Login';
 import Register from './components/Register';
+import Category from './components/Category';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,6 +38,12 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: "/category",
+        element: <Category></Category>,
+        loader: () => fetch("http://localhost:5000/category")
+        
       },
       
     ]

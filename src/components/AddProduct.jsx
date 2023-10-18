@@ -1,8 +1,7 @@
-import React from "react";
 
 const AddProduct = () => {
   return (
-    <div className="text-center my-8">
+    <div className="text-center px-4 my-8">
       <h3 className="font-young font-semibold lg:text-3xl text-xl">Add New Product</h3>
       <form
         className="bg-[#F4F3F0] p-4 sm:p-8 rounded shadow-lg w-full sm:max-w-md  mx-auto"
