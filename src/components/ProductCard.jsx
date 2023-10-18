@@ -1,9 +1,13 @@
-const ProductCard = ({ product }) => {
-  const { brand, brand_image } = product;
+import { Link, useParams } from "react-router-dom";
+
+const ProductCard = ({ product}) => {
+  const { _id, brand, brand_image } = product;
+  // const { id } = useParams();
+  // const brandProducts = product.filter(item => item.brand === id);
 
   return (
-    <div className="max-w-[1340px] lg:px-8 px-6">
-      <div className="card image-full">
+    <Link to={`/products/${brand}`}>
+      <div  className="card image-full">
         <figure>
           <img className="" src={brand_image} alt="Shoes" />
         </figure>
@@ -11,7 +15,9 @@ const ProductCard = ({ product }) => {
           <p className="text-center text-[#eee] mt-36 text-2xl font-young font-semibold">{brand}</p>
         </div> 
       </div> 
-    </div>
+    </Link> 
+    
+
   );
 };
 

@@ -17,7 +17,8 @@ import Category from './components/Category';
 import Login from './components/Login';
 import Register from './components/Register';
 import AuthProvider from './AuthProvider';
-import PrivateRoute from './PrivateRoute';
+import PrivateRoute from './PrivateRoute'; 
+import BrandPage from './components/brandPage';
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/products")  
+        loader: () => fetch("http://localhost:5000/products")
       },
       {
         path: "/products",
@@ -44,13 +45,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/register",
-        element: <Register></Register> 
+        element: <Register></Register>        
       },
       {
-        path: "/",  
-        element: <Category></Category>
-        
-        
+        path: "/products/:brand",
+        element: <BrandPage></BrandPage>,
+        loader: () => fetch("http://localhost:5000/products")
+      },
+      {
+        path: "/products/:id",   
+        element: <Category></Category>,
+        loader: (params) => fetch(`http://localhost:5000/products/${params.id}`)
       },
       
     ]

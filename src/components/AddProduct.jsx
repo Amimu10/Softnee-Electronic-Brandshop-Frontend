@@ -10,7 +10,7 @@ const AddProduct = () => {
     e.preventDefault();
     const form = e.target;
     const image = form.image.value;
-    const brand_image = form.brand_image.value;
+    const brandImage = form.brandImage.value;
     const name = form.name.value;
     const brand = form.brand.value;
     const category = form.category.value;
@@ -18,7 +18,7 @@ const AddProduct = () => {
     const rating = form.rating.value;
     const description = form.description.value; 
 
-    const newProduct = {image, brand_image, name, brand, category, price, rating, description}; 
+    const newProduct = {image, brandImage, name, brand, category, price, rating, description}; 
     console.log(newProduct);
     fetch('http://localhost:5000/products', {
       method: 'POST', 
@@ -44,40 +44,44 @@ const AddProduct = () => {
 
   return (
     <div data-aos="zoom-out-up" className="text-center px-4 py-8 bg-[#232323]">
-      <h3 className="font-young text-[#eee] mb-8 font-semibold lg:text-3xl text-xl">Add New Product</h3>
-      <form onSubmit={handleAddProduct}
-        className="bg-[#F4F3F0] p-4 sm:p-8 rounded shadow-lg w-full sm:max-w-md  mx-auto"
-      >
-        <div className="mb-4">
-          <label
-            htmlFor="image"
-            className="block text-left text-gray-700 text-sm font-bold mb-2"
-          >
-           Product Image 
-          </label>
-          <input
-            type="text"
-            id="image"
-            name="image"
-            placeholder="Enter image URL"
-            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
-         required />
-        </div>
-        <div className="mb-4">
-          <label
-            htmlFor="image"
-            className="block text-left text-gray-700 text-sm font-bold mb-2"
-          >
-            Brand image
-          </label>
-          <input
-            type="text"
-            id="image"
-            name="brand_image"
-            placeholder="Enter image URL"
-            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
-         required />
-        </div>
+    <h3 className="font-young text-[#eee] mb-8 font-semibold lg:text-3xl text-xl">
+      Add New Product
+    </h3>
+    <form
+      onSubmit={handleAddProduct}
+      className="bg-[#F4F3F0] p-4 sm:p-8 rounded shadow-lg w-full sm:max-w-md mx-auto"
+    >
+      <div className="mb-4">
+        <label
+          htmlFor="image"
+          className="block text-left text-gray-700 text-sm font-bold mb-2"
+        >
+          Product Image
+        </label>
+        <input
+          type="text"
+          id="image"
+          name="image"
+          placeholder="Enter image URL"
+          className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
+          required
+        />
+      </div>
+      <div className="mb-4">
+        <label
+          htmlFor="brandImage"
+          className="block text-left text-gray-700 text-sm font-bold mb-2"
+        >
+          Brand image (optional)
+        </label>
+        <input
+          type="text"
+          id="brandImage"
+          name="brandImage"
+          placeholder="Enter image URL"
+          className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
+        />
+      </div>
 
         <div className="mb-4 flex flex-wrap -mx-2">
           <div className="w-full sm:w-1/2 px-2 mb-4 sm:mb-0">
@@ -93,7 +97,8 @@ const AddProduct = () => {
               name="name"
               placeholder="Enter name"
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
-              required />
+              required
+            />
           </div>
 
           <div className="w-full sm:w-1/2 px-2">
@@ -109,7 +114,8 @@ const AddProduct = () => {
               name="brand"
               placeholder="Enter brand name"
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
-              required />
+              required
+            />
           </div>
         </div>
 
@@ -171,18 +177,18 @@ const AddProduct = () => {
         </div>
         <div className="mb-4">
           <label
-            htmlFor="image"
+            htmlFor="description"
             className="block text-left text-gray-700 text-sm font-bold mb-2"
           >
             Short Description
           </label>
-          <input
-            type="description"
+          <textarea
             id="description"
             name="description"
             placeholder="Enter description"
             className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
-            required  />
+            required
+          />
         </div>
 
         <div className="mb-4">
