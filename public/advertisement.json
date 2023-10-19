@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "img": "https://source.unsplash.com/600x400/?google-phone",
+      "date": "2023-10-19",
+      "productName": "Google Phone",
+      "originalPrice": 599.99
+    },
+    {
+      "id": 2,
+      "img": "https://source.unsplash.com/600x400/?intel-computer",
+      "date": "2023-10-20",
+      "productName": "Intel Computer",
+      "originalPrice": 1299.99
+    },
+    {
+      "id": 3,
+      "img": "https://source.unsplash.com/600x400/?apple-watch",
+      "date": "2023-10-21",
+      "productName": "Apple Smart Watch",
+      "originalPrice": 349.99
+    },
+    {
+      "id": 4,
+      "img": "https://source.unsplash.com/600x400/?microsoft-headphone",
+      "date": "2023-10-22",
+      "productName": "Microsoft Headphone",
+      "originalPrice": 149.99
+    },
+    {
+      "id": 5,
+      "img": "https://source.unsplash.com/600x400/?sony-tv",
+      "date": "2023-10-23",
+      "productName": "Sony TV",
+      "originalPrice": 799.99
+    },
+    {
+      "id": 6,
+      "img": "https://source.unsplash.com/600x400/?samsung-phone",
+      "date": "2023-10-24",
+      "productName": "Samsung Phone",
+      "originalPrice": 699.99
+    }
+  ]
+  

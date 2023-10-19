@@ -10,15 +10,16 @@ import MainLayOut from './MainLayOut';
 import ErrorPage from './components/ErrorPage';
 import AddProduct from './components/AddProduct';
 import MyCart from './components/MyCart';
-// import Login from './components/Login';
-// import Register from './components/Register';
-import Category from './components/Category';
-// import AuthProvider from '../src/AuthProvider';
 import Login from './components/Login';
 import Register from './components/Register';
 import AuthProvider from './AuthProvider';
 import PrivateRoute from './PrivateRoute'; 
-import BrandPage from './components/brandPage';
+// import BrandPage from './components/brandPage';
+import AdvertisementSlider from './components/AdvertisementSlider'; 
+import ProductDetails from './components/ProductDetails';
+import BrandPage from './components/BrandPage';
+import { ThemeProvider } from '@material-tailwind/react';
+import UPdateProducts from './components/UPdateProducts';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/products")
+        // loader: () => fetch("http://localhost:5000/products")
       },
       {
         path: "/products",
@@ -48,14 +49,34 @@ const router = createBrowserRouter([
         element: <Register></Register>        
       },
       {
-        path: "/products/:brand",
-        element: <BrandPage></BrandPage>,
-        loader: () => fetch("http://localhost:5000/products")
+        path: "/addProduct",
+        element: <AddProduct></AddProduct>      
       },
       {
-        path: "/products/:id",   
-        element: <Category></Category>,
-        loader: (params) => fetch(`http://localhost:5000/products/${params.id}`)
+        path: "/advertiements",
+        element: <AdvertisementSlider></AdvertisementSlider>        
+      },
+      {
+        path: "/showBrand/:brand", 
+        element: <BrandPage></BrandPage>,
+        loader: ({ params }) => {
+          return fetch(`http://localhost:5000/products/${params.brand}`);
+        },
+      },
+     
+      {
+        path: "/showBrand/brandDetails/:id",   
+        element: <ProductDetails></ProductDetails>,
+        loader: ({params})=>{
+          return fetch(`http://localhost:5000/productDetails/${params.id}`)
+        }
+      },
+      {
+        path: "updateProducts/:id",   
+        element: <UPdateProducts></UPdateProducts>,
+        loader: ({params})=>{
+          return fetch(`http://localhost:5000/updateproducts/${params.id}`)
+        }
       },
       
     ]

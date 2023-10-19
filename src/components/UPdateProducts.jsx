@@ -1,62 +1,71 @@
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import "aos/dist/aos.css";
 import AOS from "aos";
 
 AOS.init();
 
-const AddProduct = () => {
-  const handleAddProduct = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const image = form.image.value;
-    const brandImage = form.brandImage.value;
-    const name = form.name.value;
-    const brand = form.brand.value;
-    const category = form.category.value;
-    const price = form.price.value;
-    const rating = form.rating.value;
-    const description = form.description.value;
+const UPdateProducts = () => {
+    const products = useLoaderData();   
+    console.log(products); 
 
-    const newProduct = {
-      image,
-      brandImage,
-      name,
-      brand,
-      category,
-      price,
-      rating,
-      description,
-    };
-    console.log(newProduct);
-    fetch("http://localhost:5000/products", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            position: "top",
-            icon: "success",
-            title: "Your work has been saved",
-            showConfirmButton: true,
-            timer: 1500,
+    const  {_id, image, name, brand, brandImage, category, price, rating, description} = products;
+      console.log(products);
+      const handleUpdateProduct = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const image = form.image.value;
+        const brandImage = form.brandImage.value;
+        const name = form.name.value;
+        const brand = form.brand.value;
+        const category = form.category.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const description = form.description.value;
+    
+        const updatedProduct = {
+          
+          image,
+          brandImage,
+          name,
+          brand,
+          category,
+          price,
+          rating,
+          description,
+         
+        };
+        console.log(updatedProduct);
+        fetch(`http://localhost:5000/updateProducts/${_id}`, {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(updatedProduct),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.modifiedCount) {
+              Swal.fire({
+                position: "top",
+                icon: "success",
+                title: "Your work has been saved",
+                showConfirmButton: true,
+                timer: 1500,
+              });
+            }
           });
-        }
-      });
-  };
-
-  return (
-    <div data-aos="zoom-out-up" className="text-center px-4 py-8 bg-[#232323]">
+      };
+    
+      
+    return (
+        <div data-aos="zoom-out-up" className="text-center px-4 py-8 bg-[#232323]">
       <h3 className="font-young text-[#eee] mb-8 font-semibold lg:text-3xl text-xl">
-        Add New Product
+        Update Product
       </h3>
       <form
-        onSubmit={handleAddProduct}
+        onSubmit={handleUpdateProduct}
         className="bg-[#F4F3F0] p-4 sm:p-8 rounded shadow-lg w-full sm:max-w-md mx-auto"
       >
         <div className="mb-4">
@@ -70,6 +79,7 @@ const AddProduct = () => {
             type="text"
             id="image"
             name="image"
+            defaultValue={image}
             placeholder="Enter image URL"
             className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
             required
@@ -86,6 +96,7 @@ const AddProduct = () => {
             type="text"
             id="brandImage"
             name="brandImage"
+            defaultValue={brandImage}
             placeholder="Enter image URL"
             className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
           />
@@ -103,6 +114,7 @@ const AddProduct = () => {
               type="text"
               id="name"
               name="name"
+              defaultValue={name}
               placeholder="Enter name"
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
               required
@@ -120,6 +132,7 @@ const AddProduct = () => {
               type="text"
               id="brand"
               name="brand"
+              defaultValue={brand}
               placeholder="Enter brand name"
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
               required
@@ -128,29 +141,41 @@ const AddProduct = () => {
         </div>
 
         <div className="mb-4">
-          <label
-            htmlFor="category"
-            className="block text-left text-gray-700 text-sm font-bold mb-2"
-          >
-            Category
-          </label>
-          <select
-            id="category"
-            name="category"
-            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
-            defaultValue="" // or value=""
-          >
-            <option value="" disabled>
-              Select Category
-            </option>
-            <option value="phone">Phone</option>
-            <option value="computer">Computer</option>
-            <option value="headPhone">HeadPhone</option>
-            <option value="smart Watch">Smart Watch</option>
-            <option value="camera">Camera</option>
-            <option value="google Devices">Google Devices</option>
-          </select>
-        </div>
+  <label
+    htmlFor="category"
+    className="block text-left text-gray-700 text-sm font-bold mb-2"
+  >
+    Category
+  </label>
+  <select
+    id="category"
+    name="category"
+    defaultValue={category} // Set the default value for the entire select element
+    className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
+  >
+    <option value="" disabled>
+      Select Category
+    </option>
+    <option value="phone" selected={category === 'phone'}>
+      Phone
+    </option>
+    <option value="computer" selected={category === 'computer'}>
+      Computer
+    </option>
+    <option value="headPhone" selected={category === 'headPhone'}>
+      HeadPhone
+    </option>
+    <option value="smartWatch" selected={category === 'smartWatch'}>
+      Smart Watch
+    </option>
+    <option value="camera" selected={category === 'camera'}>
+      Camera
+    </option>
+    <option value="googleDevices" selected={category === 'googleDevices'}>
+      Google Devices
+    </option>
+  </select>
+</div>
         <div className="mb-4 flex flex-wrap -mx-2">
           <div className="w-full sm:w-1/2 px-2 mb-4 sm:mb-0">
             <label
@@ -163,6 +188,7 @@ const AddProduct = () => {
               type="text"
               id="price"
               name="price"
+              defaultValue={price}
               placeholder="Enter price"
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
               required
@@ -180,6 +206,7 @@ const AddProduct = () => {
               type="text"
               id="rating"
               name="rating"
+              defaultValue={rating}
               placeholder="Enter rating"
               className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
               required
@@ -196,6 +223,7 @@ const AddProduct = () => {
           <textarea
             id="description"
             name="description"
+            defaultValue={description} 
             placeholder="Enter description"
             className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
             required
@@ -207,12 +235,12 @@ const AddProduct = () => {
             type="submit"
             className="bg-[#f33f3f] text-[#eee]  font-young py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline-green"
           >
-            Add Product
+            Update Product
           </button>
         </div>
       </form>
     </div>
-  );
+    );
 };
 
-export default AddProduct;
+export default UPdateProducts;

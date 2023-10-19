@@ -1,4 +1,4 @@
-import React from "react";
+
 import Slider from "react-slick";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import "aos/dist/aos.css"; // Import the styles

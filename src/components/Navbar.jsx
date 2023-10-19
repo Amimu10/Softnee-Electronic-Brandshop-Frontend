@@ -1,8 +1,9 @@
 import { useContext, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import Logo from "../assets/logo.webp";
 import { AuthContext } from '../AuthProvider';
+
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -32,6 +33,7 @@ const Navbar = () => {
           <h3 className="lg:text-2xl font-semibold font-young text-orange-600">
            <img src={Logo} alt="" /> 
           </h3>
+
         </div>
         <div className="md:flex lg:gap-12 md:gap-6 text-lg hidden list-none">
           <li className="md:mt-1">
@@ -50,7 +52,7 @@ const Navbar = () => {
           </li>
           <li className="md:mt-1">
             <NavLink
-              to="/products"
+              to="/addProduct"
               className={({ isActive, isPending }) =>
                 isPending
                   ? 'pending'
@@ -90,19 +92,19 @@ const Navbar = () => {
                   </>
                 )}
                 <NavLink onClick={handleLogOut}>
-                  <Link className="bg-[#7AA93C] text-white font-young font-thin px-4 py-2 rounded">
+                  <button className="bg-[#7AA93C] text-white font-young font-thin px-4 py-2 rounded">
                     Sign Out
-                  </Link>
+                  </button>
                 </NavLink>
               </>
             ) : (
               <NavLink>
-                <Link
+                <button
                   to="/login"
                   className="bg-[#7AA93C] text-white font-young font-thin px-4 py-2 rounded"
                 >
                   Login
-                </Link>
+                </button>
               </NavLink>
             )}
           </li>
@@ -139,7 +141,7 @@ const Navbar = () => {
               </li>
               <li className="md:mt-1">
                 <NavLink
-                  to="/products"
+                  to="/addProduct"
                   onClick={handleNavLinkClick}
                   className={({ isActive, isPending }) =>
                     isPending
@@ -169,7 +171,7 @@ const Navbar = () => {
               </li>
               {
                 user?  <li>
-                <Link
+                <button
                   onClick={handleLogOut}
                   
                   to="/login"
@@ -182,11 +184,11 @@ const Navbar = () => {
                   }
                 >
                   Sign Out
-                </Link>
+                </button>
               </li>
               :
               <li>
-                <Link
+                <button
                   onClick={handleLogOut}
                   to="/login"
                   className={({ isActive, isPending }) =>
@@ -198,7 +200,7 @@ const Navbar = () => {
                   }
                 >
                   Login
-                </Link>
+                </button>
               </li>
                }
             </ul>
