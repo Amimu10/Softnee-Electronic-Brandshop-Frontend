@@ -23,6 +23,7 @@ const Navbar = () => {
 
 
   const { user, logOut } = useContext(AuthContext);
+  const userName = user?.displayName;
   console.log(user);
   const [menu, setMenu] = useState(false);
 
@@ -81,7 +82,7 @@ const Navbar = () => {
             </li>
             <li className="md:mt-1">
               <NavLink
-                to="/cart"
+                to={`/carts/${userName}`}
                 className={({ isActive, isPending }) =>
                   isPending
                     ? "pending"
@@ -209,7 +210,7 @@ const Navbar = () => {
                   </li>
                   <li className="md:mt-1">
                     <NavLink
-                      to="/cart"
+                     to={`/carts/${userName}`}
                       onClick={handleNavLinkClick}
                       className={({ isActive, isPending }) =>
                         isPending

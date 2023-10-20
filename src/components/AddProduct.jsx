@@ -140,7 +140,7 @@ const AddProduct = () => {
             className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
             defaultValue="" 
           >
-            <option value="" >
+            <option value="" > 
               Select Category
             </option>
             <option value="phone">Phone</option>

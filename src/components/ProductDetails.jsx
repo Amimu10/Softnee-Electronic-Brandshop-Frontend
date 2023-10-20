@@ -1,44 +1,48 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
-// import StarRatings from "react-star-ratings"
 import Swal from "sweetalert2";
+import { AuthContext } from "../AuthProvider";
+// import StarRatings from "react-star-ratings"
+// import Swal from "sweetalert2";
 
 const ProductDetails = () => {
-  const handleAddToCart = () => {
-    console.log("product upcoming");
-    const CartItems = JSON.parse(localStorage.getItem("item")) || [];
-    const exist = CartItems.find((item) => item._id === detailsData._id);
 
-    if (!exist) {
-      CartItems.push(detailsData);
-      localStorage.setItem("item", JSON.stringify(CartItems));
-      Swal.fire({
-        position: "top",
-        icon: "success",
-        title: "Your product added",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    } else {
-      Swal.fire({
-        position: "top",
-        icon: "error",
-        title: "Your product already added",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    }
-  };
-
+  const {user} = useContext(AuthContext);
+  const userName = user.displayName;
   const detailsData = useLoaderData();
   console.log(detailsData);
   const {
     image,
+    category,
+    price,
     name,
     brand,
     rating,
     description,
   } = detailsData;
+ 
+  const handleAddToCart = () => {
+    const data = { name, brand, description, category, rating, image, userName, price } 
+
+    fetch('http://localhost:5000/carts', { 
+      method: 'POST',
+      headers: {
+          'content-type': 'application/json'
+      },
+      body: JSON.stringify(data)
+  })
+      .then(res => res.json())
+      .then(data => {
+          if (data.acknowledged) {
+              Swal.fire(
+                  'Good job!',
+                  'Product add successfully!',
+                  'success'
+              )
+          }
+      })
+  };
+
 
   return (
     <div

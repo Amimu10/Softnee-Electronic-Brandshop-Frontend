@@ -44,7 +44,7 @@ const ShowBrandCard = ({ data }) => {
               <p className="text-gray-500">Band Name: {brand}</p>
 
               <div className="mt-3">
-                  <p className="text-gray-700">Type: {category}</p>
+                  <p className="text-gray-700">Cateogry: {category}</p>
                   <p className="text-gray-700">Price: ${price}</p>
                   <div >
                       <StarRatings
