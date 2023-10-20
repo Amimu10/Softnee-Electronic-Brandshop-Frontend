@@ -24,7 +24,6 @@ const UPdateProducts = () => {
         const description = form.description.value;
     
         const updatedProduct = {
-          
           image,
           brandImage,
           name,
@@ -36,7 +35,7 @@ const UPdateProducts = () => {
          
         };
         console.log(updatedProduct);
-        fetch(`https://electro-server-1l9t58aag-amimul211-gmailcom.vercel.app/updateProducts/${_id}`, {
+        fetch(` https://elite-electro-server-eg7jvujym-amimul211-gmailcom.vercel.app/updateProducts/${_id}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",
@@ -60,7 +59,7 @@ const UPdateProducts = () => {
     
       
     return (
-        <div data-aos="zoom-out-up" className="text-center px-4 py-8 bg-[#232323]">
+      <div data-aos="zoom-out-up" className="text-center px-4 py-8 bg-[#232323]">
       <h3 className="font-young text-[#eee] mb-8 font-semibold lg:text-3xl text-xl">
         Update Product
       </h3>
@@ -85,6 +84,7 @@ const UPdateProducts = () => {
             required
           />
         </div>
+        
         <div className="mb-4">
           <label
             htmlFor="brandImage"
@@ -120,24 +120,17 @@ const UPdateProducts = () => {
               required
             />
           </div>
-
-          <div className="w-full sm:w-1/2 px-2">
-            <label
-              htmlFor="brand"
-              className="block text-left text-gray-700 text-sm font-bold mb-2"
-            >
-              Brand Name
-            </label>
-            <input
-              type="text"
-              id="brand"
-              name="brand"
-              defaultValue={brand}
-              placeholder="Enter brand name"
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
-              required
-            />
-          </div>
+          <div className="w-full sm:w-1/2 px-2 mb-4 sm:mb-0">
+              <label className="block text-left text-gray-700 text-sm font-bold mb-2">Brand Name</label>
+              <select required name="brand" className=" text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <option defaultValue='Apple'>Apple</option> 
+                <option defaultValue='Intel'>Intel</option>  
+                <option defaultValue='Google'>Google</option>
+                <option defaultValue='Microsoft'>Microsoft</option>
+                <option defaultValue='Sony'>Sony</option>
+                <option defaultValue='Samsung'>Samsung</option> 
+              </select>
+            </div>
         </div>
 
         <div className="mb-4">
@@ -171,8 +164,8 @@ const UPdateProducts = () => {
     <option value="camera" selected={category === 'camera'}>
       Camera
     </option>
-    <option value="googleDevices" selected={category === 'googleDevices'}>
-      Google Devices
+    <option value="SmartDevices" selected={category === 'SmartDevices'}>
+      Smart Devices
     </option>
   </select>
 </div>
@@ -194,7 +187,7 @@ const UPdateProducts = () => {
               required
             />
           </div>
-
+          
           <div className="w-full sm:w-1/2 px-2">
             <label
               htmlFor="rating"

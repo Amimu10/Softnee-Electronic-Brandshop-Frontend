@@ -60,7 +60,7 @@ const ShowBrandCard = ({ data }) => {
 
               <div className="mt-4 flex justify-between">
                   <Link to={`/showBrand/brandDetails/${_id}`} className="px-4 py-2 font-young bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none">
-                     See Details
+                     See  Details
                   </Link>
                   <Link  to={`/updateProducts/${_id}`} className="px-4 py-2 font-young bg-pink-500 text-white rounded-md hover:bg-green-600 focus:outline-none">
                      Update
