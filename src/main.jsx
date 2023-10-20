@@ -14,11 +14,9 @@ import Login from './components/Login';
 import Register from './components/Register';
 import AuthProvider from './AuthProvider';
 import PrivateRoute from './PrivateRoute'; 
-// import BrandPage from './components/brandPage';
 import AdvertisementSlider from './components/AdvertisementSlider'; 
 import ProductDetails from './components/ProductDetails';
 import BrandPage from './components/BrandPage';
-import { ThemeProvider } from '@material-tailwind/react';
 import UPdateProducts from './components/UPdateProducts';
 
 const router = createBrowserRouter([

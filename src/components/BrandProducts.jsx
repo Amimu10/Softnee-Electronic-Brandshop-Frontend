@@ -31,7 +31,7 @@ import { Link } from "react-router-dom";
 import StarRatings from 'react-star-ratings';
 const ShowBrandCard = ({ data }) => {
 
-  const { name, brand, price, rating, type, image, _id } = data;
+  const { name, brand, price, rating, category, image, _id } = data;
   const [rat] = useState(parseInt(rating));
 
 
@@ -44,7 +44,7 @@ const ShowBrandCard = ({ data }) => {
               <p className="text-gray-500">Band Name: {brand}</p>
 
               <div className="mt-3">
-                  <p className="text-gray-700">Type: {type}</p>
+                  <p className="text-gray-700">Type: {category}</p>
                   <p className="text-gray-700">Price: ${price}</p>
                   <div >
                       <StarRatings

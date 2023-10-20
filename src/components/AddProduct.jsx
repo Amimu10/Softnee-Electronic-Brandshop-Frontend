@@ -138,17 +138,17 @@ const AddProduct = () => {
             id="category"
             name="category"
             className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
-            defaultValue="" // or value=""
+            defaultValue="" 
           >
-            <option value="" disabled>
+            <option value="" >
               Select Category
             </option>
             <option value="phone">Phone</option>
             <option value="computer">Computer</option>
             <option value="headPhone">HeadPhone</option>
-            <option value="smart Watch">Smart Watch</option>
+            <option value="smart Watch">Smart Watch</option> 
             <option value="camera">Camera</option>
-            <option value="google Devices">Google Devices</option>
+            <option value="google Devices">Smart Devices</option>
           </select>
         </div>
         <div className="mb-4 flex flex-wrap -mx-2">

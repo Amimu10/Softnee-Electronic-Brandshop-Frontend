@@ -41,11 +41,14 @@ const BrandPage = () => {
   const data = useLoaderData();
 
   return (
-    <div data-aos="zoom-in-up" className="max-w-[1340px] lg:px-8 mx-auto">
+    <div data-aos="zoom-in-up" className="max-w-[1340px] lg:px-8 px-4 mx-auto">
       <div className="my-8">
-        <AdvertisementSlider details={data}/>
+        <AdvertisementSlider details={data}/> 
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 px-6">
+        <h3 className="text-center text-3xl font-young font-semibold my-12">Our Available Products</h3>
+  
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+       
         {
           data.map(card => <BrandProducts key={card._id} data={card}></BrandProducts>)
         }
