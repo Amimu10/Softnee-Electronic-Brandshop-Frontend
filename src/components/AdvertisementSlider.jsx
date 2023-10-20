@@ -55,8 +55,8 @@ const AdvertisementSlider = () => {
   };
 
   return (
-    <div className="bg-gray-100 p-4">
-      <h2 className=" text-3xl font-bold text-center border-b-2 pb-4">Our up coming products !!!</h2>
+    <div className=" p-4">
+      <h2 className=" text-3xl font-bold text-center text-[] border-b pb-4">Our up coming products !!!</h2>
       <div className="mx-auto max-w-screen-lg">
         <Slider className="mx-auto" {...settings}>
           {discounts.map(discount => (
@@ -73,7 +73,7 @@ const AdvertisementSlider = () => {
                   </div>
                 </div>
                 <div className="px-6 py-4">
-                  <h3 className="text-xl text-center font-semibold mb-2">{discount.productName}</h3>
+                  <h3 className="text-md text-center font-semibold mb-2">{discount.productName}</h3>
                 </div>
               </div>
             </div>

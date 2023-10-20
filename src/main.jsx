@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        // loader: () => fetch("http://localhost:5000/products")
+        // loader: () => fetch("https://electro-server-1l9t58aag-amimul211-gmailcom.vercel.app/products")
       },
       {
         path: "/products",
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: "/carts/:userName",
         element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:5000/carts/${params.userName}`) 
+        loader: ({params})=> fetch(`https://electro-server-1l9t58aag-amimul211-gmailcom.vercel.app/carts/${params.userName}`) 
       
       },
       {
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
         path: "/showBrand/:brand", 
         element: <BrandPage></BrandPage>,
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/products/${params.brand}`);
+          return fetch(`https://electro-server-1l9t58aag-amimul211-gmailcom.vercel.app/products/${params.brand}`);
         },
       },
      
@@ -68,14 +68,14 @@ const router = createBrowserRouter([
         path: "/showBrand/brandDetails/:id",   
         element:<PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
         loader: ({params})=>{
-          return fetch(`http://localhost:5000/productDetails/${params.id}`)
+          return fetch(`https://electro-server-1l9t58aag-amimul211-gmailcom.vercel.app/productDetails/${params.id}`)
         }
       },
       {
         path: "updateProducts/:id",   
         element: <PrivateRoute><UPdateProducts></UPdateProducts></PrivateRoute>,
         loader: ({params})=>{
-          return fetch(`http://localhost:5000/updateproducts/${params.id}`)
+          return fetch(`https://electro-server-1l9t58aag-amimul211-gmailcom.vercel.app/updateproducts/${params.id}`)
         }
       },
       

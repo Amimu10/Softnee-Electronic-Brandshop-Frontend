@@ -2,8 +2,11 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider";
-// import StarRatings from "react-star-ratings"
-// import Swal from "sweetalert2";
+import 'aos/dist/aos.css'; 
+import AOS from 'aos';
+
+AOS.init();
+
 
 const ProductDetails = () => {
 
@@ -24,7 +27,7 @@ const ProductDetails = () => {
   const handleAddToCart = () => {
     const data = { name, brand, description, category, rating, image, userName, price } 
 
-    fetch('http://localhost:5000/carts', { 
+    fetch('https://electro-server-1l9t58aag-amimul211-gmailcom.vercel.app/carts', { 
       method: 'POST',
       headers: {
           'content-type': 'application/json'
@@ -45,7 +48,7 @@ const ProductDetails = () => {
 
 
   return (
-    <div
+    <div  data-aos="zoom-in"
       className="flex p-4 flex-col border w-full border-[#f33f3f] mx-auto items-center rounded-md my-8 shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
     >
       <img

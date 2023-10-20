@@ -3,7 +3,10 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider";
-// import { AuthContext } from "./AuthProvider";
+import 'aos/dist/aos.css'; 
+import AOS from 'aos';
+
+AOS.init();
 
 const Login = () => {
   const { signInUser, signinWithGoogle } = useContext(AuthContext);
@@ -62,7 +65,7 @@ const Login = () => {
   };
   return (
     <div data-aos="zoom-in-down">
-    <div className="flex items-center justify-center bg-gray-100 my-8">
+    <div className="flex items-center justify-center my-8">
     <button onClick={handleGoogleSign} className="flex items-center border rounded-md font-young border-[#FDBF05] bg-white px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200">
   <svg className="h-6 w-6 mr-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-0.5 0 48 48" version="1.1">
       <title>Google-color</title>
@@ -82,10 +85,10 @@ const Login = () => {
   <span>Continue with Google</span>
 </button>
 </div>
-<p className="text-center text-2xl text-[#A3A3A3] font-semibold font-young mt-2">Or</p>
-    <div className="hero mb-24 bg-base-200">
+<p className="text-center text-2xl font-semibold font-young mt-2">Or</p>
+    <div className="hero mb-24">
       <div className="hero-content flex-col">
-        <h1 className="text-3xl font-bold text-[#1A1919]">Login now!</h1>
+        <h1 className="text-3xl font-bold font-young">Login now!</h1>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-[#ABCE4E]">
           <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">

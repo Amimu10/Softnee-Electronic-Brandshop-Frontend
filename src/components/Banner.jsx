@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Slider from "react-slick";
 import { Typography, Button } from "@material-tailwind/react";
 import "slick-carousel/slick/slick.css";
@@ -38,7 +38,7 @@ const Banner = () => {
   return (
     <Slider className="" {...settings}>
       {images.map((imageUrl, index) => (
-        <div key={index} className="relative h-screen w-full">
+        <div key={index} className="relative h-screen w-full" data-aos="zoom-out-down"  >
           <img
             src={imageUrl}
             alt={`image ${index + 1}`}
@@ -49,7 +49,7 @@ const Banner = () => {
               <Typography
                 variant="h1"
                 color="white"
-                className="lg:mb-4 my-8 text-3xl md:text-4xl lg:text-5xl font-semibold"
+                className="lg:mb-4 my-8 text-3xl md:text-2xl lg:text-5xl font-semibold"
               >
                 Explore the Latest in Technology
               </Typography>

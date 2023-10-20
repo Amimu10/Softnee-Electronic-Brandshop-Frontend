@@ -28,7 +28,7 @@ const AddProduct = () => {
       description,
     };
     console.log(newProduct);
-    fetch("http://localhost:5000/products", {
+    fetch("https://electro-server-1l9t58aag-amimul211-gmailcom.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

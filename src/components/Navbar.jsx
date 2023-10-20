@@ -44,14 +44,14 @@ const Navbar = () => {
 
   return (
     <div className="bg-[#232323]">
-      <div className="relative max-w-[1340px] lg:px-8 px-4 mx-auto">
-        <nav className="flex justify-between items-center  gap-4 p-6">
+      <div className="relative max-w-[1440px] px-4 mx-auto">
+        <nav className="flex justify-between items-center text-md  gap-4 p-6">
           <div>
             <h3 className="lg:text-2xl font-semibold font-young text-orange-600">
-              <img src={Logo} alt="" />
+              <img src={Logo} className="lg:w-full w-[145px]" alt="" />
             </h3>
           </div>
-          <div className="md:flex lg:gap-12 md:gap-6 text-lg hidden list-none">
+          <div className="md:flex lg:gap-6 md:gap-6 text-lg md:text-md hidden list-none">
             <li className="md:mt-1">
               <NavLink
                 to="/"
@@ -145,7 +145,7 @@ const Navbar = () => {
             </label>
           </div>
           <div className="md:hidden flex items-center gap-2">
-          <label className="swap swap-rotate">
+          <label className="swap swap-rotate pl-4">
               <input type="checkbox" onChange={handleToggle}/> 
 
               <svg

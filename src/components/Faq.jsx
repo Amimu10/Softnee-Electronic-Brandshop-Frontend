@@ -43,10 +43,10 @@ const Faq = () => {
   return (
     <div data-aos="zoom-in-up" className="max-w-[1340px] lg:px-8 mx-auto">
       <div className="text-center">
-        <h2 className="lg:text-3xl md:text-2xl text-xl font-semibold font-young text-[#1A1919] text-center mt-14">
+        <h2 className="lg:text-3xl md:text-2xl text-xl font-semibold font-young text-center mt-14">
           Frequently Asked Questions
         </h2>
-        <p className="text-lg text-[#555] text-center font-medium font-young mt-3 mb-6">
+        <p className="text-lg text-center font-medium font-young mt-3 mb-6">
           Explore common questions about our technology products and services. If you have additional inquiries, feel free to contact us.
         </p>
       </div>
@@ -57,7 +57,7 @@ const Faq = () => {
               className="border-slate-100 text-slate-700 rounded-t-1 group relative flex w-full cursor-pointer items-center border-b border-solid p-4 text-left font-semibold text-dark-500 transition-all ease-in"
               onClick={() => toggleAccordion(index)}
             >
-              <span className="md:text-xl text-base font-thin font-young text-[#1A1919]">{item.question}</span>
+              <span className="md:text-xl text-base font-thin font-young">{item.question}</span>
               <i className="absolute right-0 pt-1 text-xs">
                 {activeIndex === index ? <FaMinus /> : <FaPlus />}
               </i>
@@ -70,7 +70,7 @@ const Faq = () => {
                 : "h-0 overflow-hidden"
             }`}
           >
-            <div className="p-2 leading-normal text-base md:text-lg text-[#555] text-center font-extralight font-young">
+            <div className="p-2 leading-normal text-base md:text-lg text-center font-extralight">
               {item.answer}
             </div>
           </div>

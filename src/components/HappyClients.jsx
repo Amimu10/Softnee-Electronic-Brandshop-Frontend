@@ -81,10 +81,10 @@ const HappyClients = () => {
   return (
     <div data-aos="zoom-out-left" className="py-5 max-w-[1340px] lg:px-8 px-4 mx-auto">
       <div className="mb-8 text-center mt-12">
-        <h1 className="lg:text-3xl md:text-2xl text-xl font-semibold font-young text-[#1A1919] text-center mb-4">
+        <h1 className="lg:text-3xl md:text-2xl text-xl font-semibold font-young text-center mb-4">
           Satisfied Tech Enthusiasts
         </h1>
-        <p className="md:text-lg text-base font-young font-medium text-[#555]">
+        <p className="md:text-lg text-base font-young font-medium ">
           Elevate your tech experience with Softonne! We take pride in serving
           satisfied customers with a curated selection of cutting-edge
           technology and electronics. Whether you're a gadget geek, a tech
@@ -97,10 +97,10 @@ const HappyClients = () => {
 
       <Slider {...settings}>
         {testimonials.map((testimonial, index) => (
-          <div key={index} className="p-4">
+          <div key={index} className="p-2">
             <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
               <img
-                className="h-48 w-full object-cover object-center"
+                className="w-full object-cover object-center"
                 src={testimonial.image}
                 alt={`Event by ${testimonial.name}`}
               />

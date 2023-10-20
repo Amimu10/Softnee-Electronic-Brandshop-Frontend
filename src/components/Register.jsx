@@ -60,7 +60,7 @@ const Register = () => {
   };
   return (
     <div data-aos="zoom-in-down">
-      <div className="hero bg-base-200  my-12">
+      <div className="hero my-12">
         <div className="hero-content flex-col">
           <h1 className="text-3xl font-semibold font-young text-[#A3A3A3]">
             Register now!

@@ -45,9 +45,9 @@ const BrandPage = () => {
       <div className="my-8">
         <AdvertisementSlider details={data}/> 
       </div>
-        <h3 className="text-center text-3xl font-young font-semibold my-12">Our Available Products</h3>
+        <h3 className="text-center lg:text-3xl text-2xl font-young font-semibold my-12">Our Available Products</h3>
   
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"> 
        
         {
           data.map(card => <BrandProducts key={card._id} data={card}></BrandProducts>)
