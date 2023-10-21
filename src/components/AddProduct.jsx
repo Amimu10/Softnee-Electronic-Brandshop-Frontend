@@ -28,7 +28,7 @@ const AddProduct = () => {
       description,
     };
     console.log(newProduct);
-    fetch(" https://elite-electro-server-eg7jvujym-amimul211-gmailcom.vercel.app/products", {
+    fetch("https://elite-electro-server-jsnnlgmam-amimul211-gmailcom.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

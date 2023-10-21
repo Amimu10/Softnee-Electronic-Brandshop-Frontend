@@ -19,6 +19,7 @@ import ProductDetails from './components/ProductDetails';
 import BrandPage from './components/BrandPage';
 import UPdateProducts from './components/UPdateProducts';
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,10 +35,11 @@ const router = createBrowserRouter([
         path: "/products",
         element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
       },
+     
       {
         path: "/carts/:userName",
         element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
-        loader: ({params})=> fetch(` https://elite-electro-server-eg7jvujym-amimul211-gmailcom.vercel.app/carts/${params.userName}`) 
+        loader: ({params})=> fetch(`https://elite-electro-server-jsnnlgmam-amimul211-gmailcom.vercel.app/carts/${params.userName}`) 
       
       },
       {
@@ -60,7 +62,7 @@ const router = createBrowserRouter([
         path: "/showBrand/:brand", 
         element: <BrandPage></BrandPage>,
         loader: ({ params }) => {
-          return fetch(` https://elite-electro-server-eg7jvujym-amimul211-gmailcom.vercel.app/products/${params.brand}`);
+          return fetch(`https://elite-electro-server-jsnnlgmam-amimul211-gmailcom.vercel.app/products/${params.brand}`);
         },
       },
      
@@ -68,14 +70,14 @@ const router = createBrowserRouter([
         path: "/showBrand/brandDetails/:id",   
         element:<PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
         loader: ({params})=>{
-          return fetch(` https://elite-electro-server-eg7jvujym-amimul211-gmailcom.vercel.app/productDetails/${params.id}`)
+          return fetch(`https://elite-electro-server-jsnnlgmam-amimul211-gmailcom.vercel.app/productDetails/${params.id}`)
         }
       },
       {
         path: "updateProducts/:id",   
         element: <PrivateRoute><UPdateProducts></UPdateProducts></PrivateRoute>,
         loader: ({params})=>{
-          return fetch(` https://elite-electro-server-eg7jvujym-amimul211-gmailcom.vercel.app/updateproducts/${params.id}`)
+          return fetch(`https://elite-electro-server-jsnnlgmam-amimul211-gmailcom.vercel.app/updateproducts/${params.id}`)
         }
       },
       

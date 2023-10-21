@@ -2,7 +2,7 @@
 
 Welcome to Softonne, your ultimate destination for a diverse range of electronic products! Explore our collection of top-notch gadgets, appliances, and more.
 
-Visit the live site: [Softonne](https://elite-electro.web.app/)
+Visit the live site: [Softonne](https://elite-electro.web.app/) 
 
 ## Project Features:
 

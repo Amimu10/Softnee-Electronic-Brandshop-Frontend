@@ -27,7 +27,7 @@ const ProductDetails = () => {
   const handleAddToCart = () => {
     const data = { name, brand, description, category, rating, image, userName, price } 
 
-    fetch(' https://elite-electro-server-eg7jvujym-amimul211-gmailcom.vercel.app/carts', { 
+    fetch('https://elite-electro-server-jsnnlgmam-amimul211-gmailcom.vercel.app/carts', { 
       method: 'POST',
       headers: {
           'content-type': 'application/json'

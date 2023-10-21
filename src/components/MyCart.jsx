@@ -26,7 +26,7 @@ function MyCart() {
 
 
   const handleDelete = (id)=> { 
-    fetch(` https://elite-electro-server-eg7jvujym-amimul211-gmailcom.vercel.app/carts/${id}`, {
+    fetch(`https://elite-electro-server-jsnnlgmam-amimul211-gmailcom.vercel.app/carts/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

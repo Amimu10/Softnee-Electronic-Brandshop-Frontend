@@ -36,7 +36,7 @@ const UPdateProducts = () => {
     };
     console.log(updatedProduct);
     fetch(
-      ` https://elite-electro-server-eg7jvujym-amimul211-gmailcom.vercel.app/updateProducts/${_id}`,
+      `https://elite-electro-server-jsnnlgmam-amimul211-gmailcom.vercel.app/updateProducts/${_id}`,
       {
         method: "PUT",
         headers: {
@@ -151,7 +151,7 @@ const UPdateProducts = () => {
           <select
             id="category"
             name="category"
-            defaultValue={category} // Set the default value for the entire select element
+            defaultValue={category} 
             className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
           >
             <option value="" disabled>
