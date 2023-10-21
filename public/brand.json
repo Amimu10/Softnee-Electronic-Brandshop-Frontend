@@ -3,32 +3,32 @@
     {
       "id": 1,
       "name": "Amazon",
-      "image": "https://source.unsplash.com/featured/?amazon"
+      "image": "https://source.unsplash.com/featured/?amazon-products"
     },
     {
       "id": 2,
       "name": "Samsung",
-      "image": "https://source.unsplash.com/featured/?samsung"
+      "image": "https://source.unsplash.com/featured/?samsung-logo"
     },
     {
       "id": 3,
       "name": "Sony",
-      "image": "https://source.unsplash.com/featured/?sony"
+      "image": "https://source.unsplash.com/featured/?sony-logo"
     },
     {
       "id": 4,
       "name": "Google",
-      "image": "https://source.unsplash.com/featured/?google"
+      "image": "https://source.unsplash.com/featured/?google-logo"
     },
     {
       "id": 5,
       "name": "Intel",
-      "image": "https://source.unsplash.com/featured/?intel"
+      "image": "https://source.unsplash.com/featured/?intel-logo"
     },
     {
       "id": 6,
       "name": "Microsoft",
-      "image": "https://source.unsplash.com/featured/?microsoft"
+      "image": "https://source.unsplash.com/featured/?microsoft-logo"
     }
   ]
 }
