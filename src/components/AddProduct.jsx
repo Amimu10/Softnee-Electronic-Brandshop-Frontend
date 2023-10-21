@@ -9,7 +9,7 @@ const AddProduct = () => {
     e.preventDefault();
     const form = e.target;
     const image = form.image.value;
-    const brandImage = form.brandImage.value;
+    const brandImage = form.brandImage.value; 
     const name = form.name.value;
     const brand = form.brand.value;
     const category = form.category.value;
@@ -46,6 +46,7 @@ const AddProduct = () => {
             showConfirmButton: true,
             timer: 1500,
           });
+          form.reset();
         }
       });
   };
@@ -108,23 +109,17 @@ const AddProduct = () => {
               required
             />
           </div>
-
-          <div className="w-full sm:w-1/2 px-2">
-            <label
-              htmlFor="brand"
-              className="block text-left text-gray-700 text-sm font-bold mb-2"
-            >
-              Brand Name
-            </label>
-            <input
-              type="text"
-              id="brand"
-              name="brand"
-              placeholder="Enter brand name"
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
-              required
-            />
-          </div>
+          <div className="w-full sm:w-1/2 px-2 mb-4 sm:mb-0">
+              <label className="block text-left text-gray-700 text-sm font-bold mb-2">Brand Name</label>
+              <select required name="brand" className=" text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <option defaultValue='Apple'>Apple</option> 
+                <option defaultValue='Intel'>Intel</option>  
+                <option defaultValue='Google'>Google</option>
+                <option defaultValue='Microsoft'>Microsoft</option>
+                <option defaultValue='Sony'>Sony</option>
+                <option defaultValue='Samsung'>Samsung</option> 
+              </select>
+            </div>
         </div>
 
         <div className="mb-4">

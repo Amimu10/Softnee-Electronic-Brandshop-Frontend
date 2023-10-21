@@ -51,7 +51,7 @@ const Navbar = () => {
               <img src={Logo} className="lg:w-full w-[145px]" alt="" />
             </h3>
           </div>
-          <div className="md:flex lg:gap-6 md:gap-6 text-lg md:text-md hidden list-none">
+          <div className="md:flex lg:gap-12 md:gap-6 text-lg md:text-md hidden list-none">
             <li className="md:mt-1">
               <NavLink
                 to="/"

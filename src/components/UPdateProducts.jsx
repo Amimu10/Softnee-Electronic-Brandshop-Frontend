@@ -9,7 +9,7 @@ const UPdateProducts = () => {
     const products = useLoaderData();   
     console.log(products); 
 
-    const  {_id, image, name, brand, brandImage, category, price, rating, description} = products;
+    const  {_id, image, name, brandImage, category, price, rating, description} = products;
       console.log(products);
       const handleUpdateProduct = (e) => {
         e.preventDefault();
@@ -53,6 +53,7 @@ const UPdateProducts = () => {
                 showConfirmButton: true,
                 timer: 1500,
               });
+              form.reset();
             }
           });
       };
