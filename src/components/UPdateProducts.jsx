@@ -6,61 +6,62 @@ import AOS from "aos";
 AOS.init();
 
 const UPdateProducts = () => {
-    const products = useLoaderData();   
-    console.log(products); 
+  const products = useLoaderData();
+  console.log(products);
 
-    const  {_id, image, name, brandImage, category, price, rating, description} = products;
-      console.log(products);
-      const handleUpdateProduct = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const image = form.image.value;
-        const brandImage = form.brandImage.value;
-        const name = form.name.value;
-        const brand = form.brand.value;
-        const category = form.category.value;
-        const price = form.price.value;
-        const rating = form.rating.value;
-        const description = form.description.value;
-    
-        const updatedProduct = {
-          image,
-          brandImage,
-          name,
-          brand,
-          category,
-          price,
-          rating,
-          description,
-         
-        };
-        console.log(updatedProduct);
-        fetch(` https://elite-electro-server-eg7jvujym-amimul211-gmailcom.vercel.app/updateProducts/${_id}`, {
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(updatedProduct),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            if (data.modifiedCount) {
-              Swal.fire({
-                position: "top",
-                icon: "success",
-                title: "Your work has been saved",
-                showConfirmButton: true,
-                timer: 1500,
-              });
-              form.reset();
-            }
+  const { _id, image, name, brand, brandImage, category, price, rating, description } =
+    products;
+  console.log(products);
+  const handleUpdateProduct = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const image = form.image.value;
+    const brandImage = form.brandImage.value;
+    const name = form.name.value;
+    const brand = form.brand.value;
+    const category = form.category.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const description = form.description.value;
+
+    const updatedProduct = {
+      image,
+      brandImage,
+      name,
+      brand,
+      category,
+      price,
+      rating,
+      description,
+    };
+    console.log(updatedProduct);
+    fetch(
+      ` https://elite-electro-server-eg7jvujym-amimul211-gmailcom.vercel.app/updateProducts/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedProduct),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          Swal.fire({
+            position: "top",
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: true,
+            timer: 1500,
           });
-      };
-    
-      
-    return (
-      <div data-aos="zoom-out-up" className="text-center px-4 py-8 bg-[#232323]">
+        }
+      });
+  };
+
+  return (
+    <div data-aos="zoom-out-up" className="text-center px-4 py-8 bg-[#232323]">
       <h3 className="font-young text-[#eee] mb-8 font-semibold lg:text-3xl text-xl">
         Update Product
       </h3>
@@ -85,7 +86,7 @@ const UPdateProducts = () => {
             required
           />
         </div>
-        
+
         <div className="mb-4">
           <label
             htmlFor="brandImage"
@@ -122,54 +123,60 @@ const UPdateProducts = () => {
             />
           </div>
           <div className="w-full sm:w-1/2 px-2 mb-4 sm:mb-0">
-              <label className="block text-left text-gray-700 text-sm font-bold mb-2">Brand Name</label>
-              <select required name="brand" className=" text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                <option defaultValue='Apple'>Apple</option> 
-                <option defaultValue='Intel'>Intel</option>  
-                <option defaultValue='Google'>Google</option>
-                <option defaultValue='Microsoft'>Microsoft</option>
-                <option defaultValue='Sony'>Sony</option>
-                <option defaultValue='Samsung'>Samsung</option> 
-              </select>
-            </div>
+            <label className="block text-left text-gray-700 text-sm font-bold mb-2">
+              Brand Name
+            </label>
+            <select
+              name="brand"
+              className="text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              defaultValue={brand}
+            >
+              <option value="Amazon">Amazon</option>
+              <option value="Samsung">Samsung</option>
+              <option value="Sony">Sony</option>
+              <option value="Google">Google</option>
+              <option value="Intel">Intel</option>
+              <option value="Microsoft">Microsoft</option>
+            </select>
+          </div>
         </div>
 
         <div className="mb-4">
-  <label
-    htmlFor="category"
-    className="block text-left text-gray-700 text-sm font-bold mb-2"
-  >
-    Category
-  </label>
-  <select
-    id="category"
-    name="category"
-    defaultValue={category} // Set the default value for the entire select element
-    className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
-  >
-    <option value="" disabled>
-      Select Category
-    </option>
-    <option value="phone" selected={category === 'phone'}>
-      Phone
-    </option>
-    <option value="computer" selected={category === 'computer'}>
-      Computer
-    </option>
-    <option value="headPhone" selected={category === 'headPhone'}>
-      HeadPhone
-    </option>
-    <option value="smartWatch" selected={category === 'smartWatch'}>
-      Smart Watch
-    </option>
-    <option value="camera" selected={category === 'camera'}>
-      Camera
-    </option>
-    <option value="SmartDevices" selected={category === 'SmartDevices'}>
-      Smart Devices
-    </option>
-  </select>
-</div>
+          <label
+            htmlFor="category"
+            className="block text-left text-gray-700 text-sm font-bold mb-2"
+          >
+            Category
+          </label>
+          <select
+            id="category"
+            name="category"
+            defaultValue={category} // Set the default value for the entire select element
+            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
+          >
+            <option value="" disabled>
+              Select Category
+            </option>
+            <option value="phone" selected={category === "phone"}>
+              Phone
+            </option>
+            <option value="computer" selected={category === "computer"}>
+              Computer
+            </option>
+            <option value="headPhone" selected={category === "headPhone"}>
+              HeadPhone
+            </option>
+            <option value="smartWatch" selected={category === "smartWatch"}>
+              Smart Watch
+            </option>
+            <option value="camera" selected={category === "camera"}>
+              Camera
+            </option>
+            <option value="SmartDevices" selected={category === "SmartDevices"}>
+              Smart Devices
+            </option>
+          </select>
+        </div>
         <div className="mb-4 flex flex-wrap -mx-2">
           <div className="w-full sm:w-1/2 px-2 mb-4 sm:mb-0">
             <label
@@ -188,7 +195,7 @@ const UPdateProducts = () => {
               required
             />
           </div>
-          
+
           <div className="w-full sm:w-1/2 px-2">
             <label
               htmlFor="rating"
@@ -217,7 +224,7 @@ const UPdateProducts = () => {
           <textarea
             id="description"
             name="description"
-            defaultValue={description} 
+            defaultValue={description}
             placeholder="Enter description"
             className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
             required
@@ -234,7 +241,7 @@ const UPdateProducts = () => {
         </div>
       </form>
     </div>
-    );
+  );
 };
 
 export default UPdateProducts;

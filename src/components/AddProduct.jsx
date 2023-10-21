@@ -110,14 +110,14 @@ const AddProduct = () => {
             />
           </div>
           <div className="w-full sm:w-1/2 px-2 mb-4 sm:mb-0">
-              <label className="block text-left text-gray-700 text-sm font-bold mb-2">Brand Name</label>
+              <label className="block text-left text-gray-700 text-sm font-bold mb-2"> Select Brand Name</label>
               <select required name="brand" className=" text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                <option defaultValue='Apple'>Apple</option> 
-                <option defaultValue='Intel'>Intel</option>  
-                <option defaultValue='Google'>Google</option>
-                <option defaultValue='Microsoft'>Microsoft</option>
+              <option defaultValue='Amazon'>Amazon </option> 
+                <option defaultValue='Samsung'>Samsung</option>  
                 <option defaultValue='Sony'>Sony</option>
-                <option defaultValue='Samsung'>Samsung</option> 
+                <option defaultValue='Google'>Google</option>
+                <option defaultValue='Intel'>Intel</option>
+                <option defaultValue='Microsoft'>Microsoft</option>  
               </select>
             </div>
         </div>

@@ -47,7 +47,7 @@ const BrandPage = () => {
         Our Available Products
       </h3>
 
-      { data.length > 0 ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      { data.length > 0 ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
        {data.map((card) => (
          <BrandProducts key={card._id} data={card}></BrandProducts>
        ))}
