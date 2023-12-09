@@ -46,3 +46,14 @@ Visit the live site: [Softonne](https://elite-electro.web.app/)
 - Enable users to add products to their cart, ensuring that cart information persists between sessions.
 
 Explore the Softonne Electronic Store for an unparalleled shopping experience, where cutting-edge technology meets seamless functionality. Your electronic desires, fulfilled!
+
+## Uses Tech:
+
+- **Client-side Technologies:**
+  - React for building dynamic user interfaces.
+  - Tailwind CSS for modern and responsive styling.
+
+- **Server-side Technologies:**
+  - MongoDB for efficient storage and retrieval of user and product data.
+  - Express and Node.js for building a robust and scalable server.
+  - Firebase for secure user authentication.
